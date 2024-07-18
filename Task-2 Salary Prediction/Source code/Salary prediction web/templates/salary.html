@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>form tag</title>
+    <style>
+        /* .main1 {
+            margin-left: 300px;
+            width: 900px;
+            height: 550px;
+            background-color: aqua;
+            text-align: center;
+            border-spacing: 10px;
+            font-size: 25px;
+            border-radius: 40px 40px 40px 40px;
+        }
+
+        .main {
+            margin-top: 20px; 
+            background-color: rgb(47, 0, 255);
+            color: #f9fbfc;
+            text-align: center;
+        }
+
+        .designation {
+            margin-left: 20px;
+        } */
+
+        .main1{
+            width: 100%;
+        }
+
+        .main1 form{
+            display: flex;
+            justify-content: center;
+            padding: 30px;
+
+        }
+
+        .main1 form fieldset{
+            display: flex;
+            flex-direction: column;
+            width: 300px;
+            flex-grow: 1;
+            max-width: 500px;
+            background-color: antiquewhite;
+            box-shadow: 0 0 10px gray;
+            border-radius: 10px;
+        }
+
+        .input-button{
+            background-color: red;
+            padding: 8px;
+            font-size: 18px;
+            font-weight: 500;
+            color: white;
+            border-radius: 10px;
+            transition:background-color 0.5s,color 0.5s;
+        }
+
+        .input-button:hover{
+            background-color: white;
+            color: red;
+
+        }
+
+        .main1 form fieldset p{
+            width: 100%;
+            font-size: 20px;
+            margin-left: 10px;
+        }
+
+        .salary{
+           color: blue;
+           font-size: 30px;
+           font-weight: 600;
+           text-align: center;
+        }
+
+    </style>
+</head>
+
+<body>
+    <div class="main1">
+        <form action="/predict" method="POST">
+            <!-- use of <fieldset></fieldset> and <legend></legend> tag -->
+            <fieldset>
+                
+                    <h1 align="center">Predict Salary</h1>
+                
+
+                <p> <b>Gender:</b>
+                    <input type="radio" id="SEX" name="SEX" value="F" required="" size="45px">Female
+                    <input type="radio" id="SEX" name="SEX" value="M" required="">Male
+                </p>
+                    <!-- now to make group of same category options using <optgroup></optgroup> tag -->
+                  <p>  <b class='designation'>Designation:</b>
+                    <select required id="DESIGNATION" name="DESIGNATION" required>
+                        <option value="" disabled selected>Please select an option</option>
+                        <option value="Analyst">Analyst</option>
+                        <option value="Senior Analyst">Senior Analyst</option>
+                        <option value="Associate">Associate</option>
+                        <option value="Manager">Manager</option>
+                        <option value="Senior Manager">Senior Manager</option>
+                        <option value="Director">Director</option>
+                    </select>
+                </p>
+                    
+                 <p>   <b class="designation">Age:</b><input type="number" id="AGE" name="AGE" min="15" max="90"
+                        required="" />
+                </p> 
+                <p>   
+                    <b class="designation">Unit:</b>
+                    <select id="UNIT" name="UNIT" required>
+                        <option value="" disabled selected>Please select an option</option>
+                        <option value="IT">IT</option>
+                        <option value="Finance">Finance</option>
+                        <option value="Operations">Operations</option>
+                        <option value="Marketing">Marketing</option>
+                        <option value="Web">Web</option>
+                        <option value="Management">Management</option>
+                    </select>
+                </p> 
+                   <p>
+                    <b class="designation">Rating:</b><input type="number" id="RATINGS" name="RATINGS" min="0" max="5"
+                        required="" />
+                    </p>
+                    <p>
+                    <b class="designation">Past Experience:</b><input type="number" id="PAST EXP" name="PAST EXP"
+                        min="0" max="50" required="" />
+                    </p>
+                    <p>
+                    <b class="designation">Years of joining:</b><input type="number" id="WORKING YEARS"
+                        name="WORKING YEARS" min="0" max="60" required="" />
+                    </p>
+                    <input type="submit"  class="input-button"/>&emsp;<input type="reset" class="input-button"/>
+                    {% if result %}
+        
+                    <p class="salary">Predicted Salary is:{{ result }}</p>
+                    {% endif %} 
+            </fieldset>
+    </form>
+    
+    </div>
+</body>
+
+</html>
